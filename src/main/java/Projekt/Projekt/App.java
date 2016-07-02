@@ -14,12 +14,10 @@ public abstract class App {
         imie = wejscie.nextLine();
         System.out.printf("Wybierz poziom:\n1.Przedszkolak\n2.Uczeń\n3.Student\n");
         wybor = wejscie.nextInt();
-        RzutMoneta G1 = new RzutMoneta();
-        KPN G2 = new KPN();
-        JelenieZajace G3 = new JelenieZajace();
+        Gry G = new Gry();
         switch (wybor) {
             case 1:
-                G1.grap(imie, 0);
+            	G.grap(imie, 0);
                 break;
 
             case 2:
@@ -27,11 +25,11 @@ public abstract class App {
                 wybor = wejscie.nextInt();
                 switch (wybor) {
                     case 1:
-                        G1.grap(imie, 1);
+                    	G.grap(imie, 1);
                         break;
 
                     case 2:
-                        G2.grau(imie, 1);
+                    	G.grau(imie, 1);
                         break;
 
                     default:
@@ -44,15 +42,15 @@ public abstract class App {
                 wybor = wejscie.nextInt();
                 switch (wybor) {
                     case 1:
-                        G1.grap(imie, 2);
+                    	G.grap(imie, 2);
                         break;
 
                     case 2:
-                        G2.grau(imie, 2);
+                    	G.grau(imie, 2);
                         break;
 
                     case 3:
-                        G3.gras(imie, 2);
+                    	G.gras(imie, 2);
                         break;
 
                     default:
