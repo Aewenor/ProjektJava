@@ -16,7 +16,7 @@ public class JelZajController  implements Gra{
 	public void gra() {
 	    Reakcje reak = new Reakcje();
 	    Random rnd = new Random();
-	    int W1,W2,Pu1,Pu2,Pu;
+	    int W1,W2,Pu1,Pu2,Pu,tmp;
 	    Pu1=0;
 	    Pu2=0;
 	    Scanner wejscie = new Scanner(System.in);
@@ -25,8 +25,13 @@ public class JelZajController  implements Gra{
 	    wejscie.nextLine();
 	    do
 	    {
-	    view.wybierz();
-	    W1 = wejscie.nextInt();
+	    	tmp=0;
+	    	do{
+	            view.wybierz();
+	            W1 = wejscie.nextInt();
+	            if(W1 > 1 || W1 <0) view.zly();
+	            else tmp=1;
+	        	}while(tmp !=1);
 	    W2 = rnd.nextInt(2);
 	    view.wybKomp(W2);
 	    view.wynik(W1,W2);

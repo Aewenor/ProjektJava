@@ -16,7 +16,7 @@ public class KPNController implements Gra{
 	
 	public void gra() {
         Reakcje reak = new Reakcje();
-        int wyb1, wyb2, Pu;
+        int wyb1, wyb2, Pu,tmp;
         int Pu1, Pu2;
         Pu1 = 0;
         Pu2 = 0;
@@ -26,8 +26,13 @@ public class KPNController implements Gra{
         Pu = wejscie.nextInt();
         wejscie.nextLine();
         do {
+        	tmp = 0;
+        	do{
             view.wybierz();
             wyb1 = wejscie.nextInt();
+            if(wyb1 > 2 || wyb1 <0) view.zly();
+            else tmp=1;
+        	}while(tmp !=1);
             
             wyb2 = rnd.nextInt(3);
 

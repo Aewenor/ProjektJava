@@ -43,4 +43,6 @@ public class JelZajView {
             reak.reakcjap(poziom);
         }
 	}
+	
+	public void zly() {System.out.printf("Zły wybór!\n");}
 }

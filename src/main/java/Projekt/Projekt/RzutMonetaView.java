@@ -56,4 +56,5 @@ public class RzutMonetaView {
         }
 	}
 	
+	public void zly() {System.out.printf("Zły wybór!\n");}
 }

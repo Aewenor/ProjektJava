@@ -61,4 +61,6 @@ public class KPNView {
             reak.reakcjap(poziom);
         }
 	}
+	
+	public void zly() {System.out.printf("Zły wybór!\n");}
 }

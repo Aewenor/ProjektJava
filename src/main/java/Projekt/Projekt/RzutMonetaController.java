@@ -28,7 +28,7 @@ public class RzutMonetaController implements Gra{
         	do{
             view.wybierz();
             W1 = wejscie.nextInt();
-            if(W1 > 1 || W1 <0) System.out.printf("Zły wybór!\n");
+            if(W1 > 1 || W1 <0) view.zly();
             else tmp=1;
         	}while(tmp !=1);
             
