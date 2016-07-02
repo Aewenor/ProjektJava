@@ -6,7 +6,7 @@ public class RzutMoneta {
 	public void grap(String imie, int x) {
         Reakcje reak = new Reakcje();
         Random rnd = new Random();
-        int W, W1, W2, Pu1, Pu2, Pu;
+        int W, W1, W2, Pu1, Pu2, Pu, tmp;
         Pu1 = 0;
         Pu2 = 0;
         Scanner wejscie = new Scanner(System.in);
@@ -14,8 +14,13 @@ public class RzutMoneta {
         Pu = wejscie.nextInt();
         wejscie.nextLine();
         do {
+        	tmp = 0;
+        	do{
             System.out.printf("Wybierz stronę...(0 - Orzeł, 1 - Reszka)\n", imie);
             W1 = wejscie.nextInt();
+            if(W1 > 1 || W1 <0) System.out.printf("Zły wybór!\n");
+            else tmp=1;
+        	}while(tmp !=1);
             System.out.printf("Komputer wybiera...\n");
             W2 = rnd.nextInt(2);
             if (W2 == 0) {
