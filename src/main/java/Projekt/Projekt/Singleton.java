@@ -3,7 +3,7 @@ import java.io.*;
 import javazoom.jl.player.*;
 
 public class Singleton implements Runnable {
-    private static final String mp3 = "src/main/java/media/bckgrd.mp3";
+    private static final String mp3 = "src/main/java/resources/bckgrd.mp3";
 
     private static Singleton instance = new Singleton();
 
