@@ -12,7 +12,7 @@ public abstract class App {
         
         Scanner wejscie = new Scanner(System.in);
         RzutMoneta rz;
-        KPN kpn;
+        KPNController kpn;
         JelZaj jz;
         int wybor;
         String imie;
@@ -39,7 +39,7 @@ public abstract class App {
                         break;
 
                     case 2:
-                    	kpn = (KPN) f.zrobGre(wybor, 1, imie);
+                    	kpn = (KPNController) f.zrobGre(wybor, 1, imie);
                     	kpn.gra();
                         break;
 
@@ -58,7 +58,7 @@ public abstract class App {
                         break;
 
                     case 2:
-                    	kpn = (KPN) f.zrobGre(wybor, 2, imie);
+                    	kpn = (KPNController) f.zrobGre(wybor, 2, imie);
                     	kpn.gra();
                         break;
 

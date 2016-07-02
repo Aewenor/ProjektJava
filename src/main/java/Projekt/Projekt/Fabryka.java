@@ -7,7 +7,7 @@ public class Fabryka {
 	    if ( gra == 1 )
 	      return new RzutMoneta(imie,poziom);
 	    else if ( gra == 2 )
-	      return new KPN(imie,poziom);
+	      return new KPNController(imie,poziom);
 	    else if ( gra == 3)
 	      return new JelZaj(imie,poziom);
 

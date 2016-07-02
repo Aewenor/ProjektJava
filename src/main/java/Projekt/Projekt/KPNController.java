@@ -1,22 +1,19 @@
 package Projekt.Projekt;
 
-public class KPN{
-	private String imie;
-	private int poziom;
-		
-	public KPN(String iimie, int poz){		
-		imie = iimie;
-		poziom = poz;
+import java.util.Random;
+import java.util.Scanner;
+
+
+public class KPNController implements Gra{
+
+	private KPN model;
+	private KPNView view;
+	
+	public KPNController(String imie, int poziom){
+		this.model = new KPN(imie,poziom);
+		this.view = new KPNView();
 	}
 	
-	public String getName(){
-		return imie;
-	}
-	
-	public int getPoziom(){
-		return poziom;
-	}
-	/*
 	public void gra() {
         Reakcje reak = new Reakcje();
         int wyb1, wyb2, Pu;
@@ -25,25 +22,42 @@ public class KPN{
         Pu2 = 0;
         Random rnd = new Random();
         Scanner wejscie = new Scanner(System.in);
-        System.out.printf("Podaj ilość rund\n");
+        view.start();
         Pu = wejscie.nextInt();
         wejscie.nextLine();
         do {
-            System.out.printf("Wybierz...(0 - Kamień, 1 - Nożyce, 2-Papier)\n");
+            view.wybierz();
             wyb1 = wejscie.nextInt();
-            System.out.printf("Komputer wybiera...\n");
+            
             wyb2 = rnd.nextInt(3);
 
-            if (wyb2 == 0) {
-                System.out.printf("Komputer wybrał Kamień\n");
+            view.wybKomp(wyb2);
+            view.wynik(wyb1, wyb2);
+            if (wyb1 == 0 && wyb2 == 1) {
+                Pu1++;
+                Pu--;
+            } 
+            if (wyb1 == 1 && wyb2 == 0) {
+                Pu2++;
+                Pu--;
             }
-            if (wyb2 == 1) {
-                System.out.printf("Komputer wybrał Nożyce\n");
+            if (wyb1 == 0 && wyb2 == 2) {
+                Pu2++;
+                Pu--;
             }
-            if (wyb2 == 2) {
-                System.out.printf("Komputer wybrał Papier\n");
+            if (wyb1 == 2 && wyb2 == 0) {
+                Pu1++;
+                Pu--;
             }
-
+            if (wyb1 == 1 && wyb2 == 2) {
+                Pu2++;
+                Pu--;
+            }
+            if (wyb1 == 2 && wyb2 == 1) {
+                Pu1++;
+                Pu--;
+            }
+/*
             if (wyb1 == 0 && wyb2 == 0) {
                 System.out.printf("Remis!\n");
             }
@@ -82,15 +96,16 @@ public class KPN{
                 System.out.printf("Wygrywasz rundę!\n");
                 Pu1++;
                 Pu--;
-            }
+            }*/
         } while (Pu != 0);
+        /*
         System.out.printf("%s %d-%d Komputer\n", imie, Pu1, Pu2);
         if (Pu1 > Pu2) {
             reak.reakcjaw(poziom);
         } else {
             reak.reakcjap(poziom);
-        }
+        }*/
+        view.koniec(model.getName(), Pu1, Pu2, model.getPoziom(), reak);
         wejscie.close();
     }
-    */
 }
