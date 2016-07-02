@@ -1,38 +1,54 @@
 package Projekt.Projekt;
 
-import junit.framework.Test;
+import org.junit.Test;
+import org.junit.Assert;
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-    extends TestCase
+public class AppTest extends TestCase
 {
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
+   
+	@Test
+    public void test1()
     {
-        super( testName );
+    	Fabryka f = new Fabryka();
+    	RzutMonetaController f1 = (RzutMonetaController) f.zrobGre(1, 1, "janusz");
+    	RzutMonetaController f2 = new RzutMonetaController("janusz",1);  	
+        Assert.assertEquals(f1.model.getName(),f2.model.getName());
+        Assert.assertEquals(f1.model.getPoziom(),f2.model.getPoziom());
     }
-
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
+    
+	@Test
+    public void test2()
     {
-        return new TestSuite( AppTest.class );
+    	KPNController p = new KPNController("janusz",1);
+    	Assert.assertEquals(p instanceof Gra, true);
     }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
+	
+	@Test
+	public void test3(){
+		Singleton obj = Singleton.getInstance();
+		Assert.assertEquals(obj instanceof Singleton, true);
+	}
+	
+	@Test
+	public void test4(){
+		Reakcje r = new Reakcje();
+		Assert.assertEquals(r instanceof ReakcjaWygr, true);
+	}
+	
+	@Test
+	public void test5(){
+		KPN r = new KPN("romek",0);
+		Assert.assertEquals(r instanceof ReakcjaWygr, false);
+	}
+	
+	@Test
+	public void test6(){
+		KPN r = new KPN("romek",0);
+		String str = "janusz";
+		Assert.assertNotEquals(r.getName(), str);
+	}
 }
