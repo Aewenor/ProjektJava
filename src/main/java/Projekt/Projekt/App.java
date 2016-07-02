@@ -1,4 +1,5 @@
 package Projekt.Projekt;
+
 import java.util.Scanner;
 
 public abstract class App {
