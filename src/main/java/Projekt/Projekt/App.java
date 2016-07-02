@@ -11,9 +11,9 @@ public abstract class App {
         muz.start();
         
         Scanner wejscie = new Scanner(System.in);
-        RzutMoneta rz;
+        RzutMonetaController rz;
         KPNController kpn;
-        JelZaj jz;
+        JelZajController jz;
         int wybor;
         String imie;
         
@@ -25,7 +25,7 @@ public abstract class App {
         
         switch (wybor) {
             case 1:
-            	rz = (RzutMoneta) f.zrobGre(wybor, 0, imie);
+            	rz = (RzutMonetaController) f.zrobGre(wybor, 0, imie);
             	rz.gra();
                 break;
 
@@ -34,7 +34,7 @@ public abstract class App {
                 wybor = wejscie.nextInt();
                 switch (wybor) {
                     case 1:
-                    	rz = (RzutMoneta) f.zrobGre(wybor, 1, imie);
+                    	rz = (RzutMonetaController) f.zrobGre(wybor, 1, imie);
                     	rz.gra();
                         break;
 
@@ -53,7 +53,7 @@ public abstract class App {
                 wybor = wejscie.nextInt();
                 switch (wybor) {
                     case 1:
-                    	rz = (RzutMoneta) f.zrobGre(wybor, 2, imie);
+                    	rz = (RzutMonetaController) f.zrobGre(wybor, 2, imie);
                     	rz.gra();
                         break;
 
@@ -63,7 +63,7 @@ public abstract class App {
                         break;
 
                     case 3:
-                    	jz = (JelZaj) f.zrobGre(wybor, 2, imie);
+                    	jz = (JelZajController) f.zrobGre(wybor, 2, imie);
                     	jz.gra();
                         break;
 
