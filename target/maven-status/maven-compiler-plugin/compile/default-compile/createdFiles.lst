@@ -12,6 +12,7 @@ Projekt\Projekt\App.class
 Projekt\Projekt\Reakcje.class
 Projekt\Projekt\Rzut$Moneta.class
 Projekt\Projekt\Fabryka.class
+Projekt\Projekt\ButtonListener.class
 Projekt\Projekt\RzutMonetaController.class
 Projekt\Projekt\Rzut.class
 Projekt\Projekt\RzutMoneta.class
