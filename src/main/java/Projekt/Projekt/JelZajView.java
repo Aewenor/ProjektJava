@@ -1,48 +1,75 @@
 package Projekt.Projekt;
 
+import java.awt.BorderLayout;
+import java.awt.Container;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
 public class JelZajView {
 	
-	public void start(){
-		System.out.printf("Podaj ilość rund\n");
+	static JFrame frame,frame2,uwaga = new JFrame("Uwaga!");
+	static JTextField txtPodajRundy;
+	
+	public void frstart(String imie){
+		frame = new JFrame();
+	    frame.setTitle("Jelenie i Zające");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		JPanel contentPane = new JPanel();
+		frame.setContentPane(contentPane);
+		contentPane.setLayout(new BorderLayout(0, 0));
+		JButton btnPotwierdz = new JButton("Potwierdz");
+		contentPane.add(btnPotwierdz, BorderLayout.SOUTH);
+		txtPodajRundy = new JTextField("Podaj ilość rund");
+		txtPodajRundy.setHorizontalAlignment(SwingConstants.CENTER);
+		txtPodajRundy.setText("Witaj "+ imie + "! Podaj ilość rund");
+		txtPodajRundy.setColumns(1);
+		contentPane.add(txtPodajRundy, BorderLayout.NORTH);
+		frame.setSize(300, 100);
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
+		
+		btnPotwierdz.addActionListener(new ButtonListener());
 	}
 	
-	public void wybierz(){
-		System.out.printf("Wybierz stronę...(0 - Zając, 1 - Jeleń)\n");
+	public void frwybor(){
+		frame2 = new JFrame("Wybierz:");
+	    frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    
+	    JButton toggleButton = new JButton("Jeleń");
+	    
+	    Container contentPane2 = frame2.getContentPane();
+	    contentPane2.add(toggleButton, BorderLayout.NORTH);
+
+
+	    JButton toggleButton3 = new JButton("Zając");
+	    contentPane2.add(toggleButton3, BorderLayout.SOUTH);
+		
+	    frame2.setSize(300, 125);
+	    frame2.setLocationRelativeTo(null);
+		
+		toggleButton.addActionListener(new ButtonListener());
+		toggleButton3.addActionListener(new ButtonListener());
 	}
 	
-	public void wybKomp(int x){
-		System.out.printf("Komputer wybiera...\n");
-		if(x==0) System.out.printf("Komputer wybrał Zająca\n");
-	    else System.out.printf("Komputer wybrał Jelenia\n");
+	public static void frmess(int x){
+	    if(x==1)JOptionPane.showMessageDialog(uwaga, "Upolowaliście jelenia!");
+	    if(x==2)JOptionPane.showMessageDialog(uwaga, "Nic nie upolowałeś!");
+	    if(x==3)JOptionPane.showMessageDialog(uwaga, "Upolowaliście po zającu!");
+	    if(x==4) JOptionPane.showMessageDialog(uwaga, "Upolowałeś zająca!");
+	    if(x==5){
+	    	Reakcje reak = new Reakcje();
+	    	JOptionPane.showMessageDialog(uwaga, Projekt.Projekt.App.imie + " " + Projekt.Projekt.JelZajController.Pu1 + "-" + Projekt.Projekt.JelZajController.Pu2 + " Komputer");
+	    	if (Projekt.Projekt.JelZajController.Pu1 > Projekt.Projekt.JelZajController.Pu2) {
+	    		JOptionPane.showMessageDialog(uwaga,reak.reakcjaw(Projekt.Projekt.App.wybor));
+	        } else {
+	        	JOptionPane.showMessageDialog(uwaga,reak.reakcjap(Projekt.Projekt.App.wybor));
+	        }
+	    	System.exit(0);
+	    }
 	}
-	
-	public void wynik(int W1, int W2){
-		if(W1==1 && W2==1) 
-		{
-			System.out.printf("Upolowaliście jelenia!\n");
-		}
-		if(W1==0 && W2==0) 
-		{
-			System.out.printf("Upolowaliście po zającu!\n");
-		}
-		if(W1==1 && W2==0) 
-		{
-			System.out.printf("Nic nie upolowałeś!\n");
-		}
-		if(W1==0 && W2==1) 
-		{
-			System.out.printf("Upolowałeś zająca!\n");
-		}
-	}
-	
-	public void koniec(String imie,int Pu1,int Pu2,int poziom,Reakcje reak){
-		System.out.printf("%s %d-%d Komputer\n", imie, Pu1, Pu2);
-        if (Pu1 > Pu2) {
-            reak.reakcjaw(poziom);
-        } else {
-            reak.reakcjap(poziom);
-        }
-	}
-	
-	public void zly() {System.out.printf("Zły wybór!\n");}
 }

@@ -22,8 +22,7 @@ public abstract class App{
     	Singleton obj = Singleton.getInstance();
     	Thread muz = new Thread(obj);
         muz.start();
-        
-        
+            
         frame = new JFrame();
         frame.setTitle("Witaj!");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -5,5 +5,5 @@ public interface ReakcjaPrzegr {
     int UP = 1;
     int SP = 2;
     
-    void reakcjap(int x);
+    String reakcjap(int x);
 }

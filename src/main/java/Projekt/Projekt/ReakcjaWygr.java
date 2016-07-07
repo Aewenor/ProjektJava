@@ -5,5 +5,5 @@ public interface ReakcjaWygr {
     int UW = 1;
     int SW = 2;
 
-    void reakcjaw(int x);
+    String reakcjaw(int x);
 }
